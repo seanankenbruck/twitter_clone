@@ -1,12 +1,41 @@
-<h1>Twitter Feed</h1>
-<p>Hello, <%= current_user.name %>!</p>
-<p>Here is what your friends are saying:</p>
-
-<div>
-	<% @following_tweets.each do |f| %>
-		<div>
-			<p><%= f.message %></p>
-			<p><string><em><%= f.user.username %></em></strong></p>
+<div class="panel panel-default">
+	<div class="panel body">
+		<h1>Twitter Feed</h1>
+		<p>Here is what your friends are saying:</p>
+	</div>
+	<div class="current-user-profile-box col-md-4 panel panel-default">
+		<div class="panel-body">
+			<div class="row">
+				<h3><%= current_user.name %></h3>
+				<p><%= current_user.username %></p>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<span class="small-text">TWEETS</span><br />
+					<%= current_user.tweets.count %>
+				</div>
+				<div class="col-md-4">
+					<span class="small-text">FOLLOWING</span><br />
+					<%= current_user.following.length %>
+				</div>
+				<div class="col-md-4">
+					<span class="small-text">FOLLOWERS</span><br />
+					<%= @follower_count %>
+				</div>
+			</div>
 		</div>
-	<% end %>
+	</div>
+	<div class="following-feed-box col-md-7 col-md-offset-1 panel panel-default">
+		<div class="panel-body">
+			<% @following_tweets.each do |tweet| %>
+			<p>
+				<strong><%= link_to tweet.user.username, user_profile_path(id: tweet.user.id) %>:</strong><br />
+				<%= tweet.message %>
+			<% end %>
+		</div>
+	</div>
 </div>
+
+
+
+	

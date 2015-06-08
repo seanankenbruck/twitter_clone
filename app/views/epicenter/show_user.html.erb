@@ -16,17 +16,17 @@
 <% if current_user.id != @user.id %>
 	<% if current_user.following.include?(@user.id) %>
 		<%= form_tag('/unfollow') do %>
-			<div class="cant-see-me">
-				<%= number_field_tag :unfollow_id, @user.id %>
+			<div hidden>
+				<%= text_field_tag :unfollow_id, @user.id %>
 			</div>
 			<%= submit_tag 'Unfollow', class: 'btn btn-danger', id: 'unfollow_btn' %>
 		<% end %>
 	<% else %>
 	<div>
 		<%= form_tag('/now_following') do %>
-		<span class="cant-see-me">
+		<div hidden>
 			<%= text_field_tag :follow_id, @user.id %>
-		</span><br />
+		</div><br />
 		<%= submit_tag 'Follow', class: 'btn btn-primary' %>
 		<% end %>
 	</div>

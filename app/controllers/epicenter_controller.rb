@@ -41,7 +41,7 @@ class EpicenterController < ApplicationController
   	#adding user.id of the user you want to follow to your 'following' attr
   	current_user.save
   	#then save in database
-  	#redirect_to user_profile_path(id: @user.id)
+  	redirect_to user_profile_path(id: @user.id)
   end
 
   def unfollow
@@ -49,6 +49,6 @@ class EpicenterController < ApplicationController
   	current_user.following.delete(params[:unfollow_id].to_i)
   	#removing user.id of the user you want to unfollow from your 'following' attr
   	current_user.save
-  	#redirect_to tweets_path
+  	redirect_to tweets_path
   end
 end
