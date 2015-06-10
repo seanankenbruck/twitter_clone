@@ -22,3 +22,48 @@
 	font-size: .75em;
 }
 
+body {
+	background-color: #2E2E2E;
+}
+
+.registration-edit {
+	background-color: lightgrey;
+}
+
+.registration-new {
+	background-color: lightgrey;
+}
+
+.login-page {
+	background-color: lightgrey;
+}
+
+.new_tweet {
+	background-color: lightgrey;
+}
+
+.edit_tweet {
+	background-color: lightgrey;
+}
+
+.notice {
+	background-color: lightgrey;
+}
+
+.alert {
+	background-color: lightgrey;
+}
+
+.show_user {
+	background-color: lightgrey;
+}
+
+.forgot_pw {
+	background-color: lightgrey;
+}
+
+#map-canvas {
+  width: 100%;
+  height: 500px;
+}
+

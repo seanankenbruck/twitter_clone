@@ -1,28 +1,30 @@
-<h1>Listing tweets</h1>
+<div class="tweets-page">
+  <h1>Listing tweets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Message</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tweets.each do |tweet| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to tweet.message, tweet %></td>
-        <td><%= link_to tweet.user.username, user_profile_path(id: tweet.user.id) %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Message</th>
+        <th>User</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tweets.each do |tweet| %>
+        <tr>
+          <td><%= tweet.message %></td>
+          <td><%= link_to tweet.user.username, user_profile_path(id: tweet.user.id) %></td>
+          <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+          <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'Tweet!', new_tweet_path, class: "btn btn-info" %>
+  <br>
+
+  <%= link_to 'Tweet!', new_tweet_path, class: "btn btn-info" %>
+</div>

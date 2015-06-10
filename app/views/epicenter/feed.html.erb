@@ -3,6 +3,8 @@
 		<h1>Twitter Feed</h1>
 		<p>Here is what your friends are saying:</p>
 	</div>
+</div>
+<div class="row">
 	<div class="current-user-profile-box col-md-4 panel panel-default">
 		<div class="panel-body">
 			<div class="row">
@@ -28,9 +30,10 @@
 	<div class="following-feed-box col-md-7 col-md-offset-1 panel panel-default">
 		<div class="panel-body">
 			<% @following_tweets.each do |tweet| %>
-			<p>
-				<strong><%= link_to tweet.user.username, user_profile_path(id: tweet.user.id) %>:</strong><br />
-				<%= tweet.message %>
+				<p>
+					<strong><%= link_to tweet.user.username, user_profile_path(id: tweet.user.id) %>:</strong><br />
+					<%= tweet.message %>
+				</p>
 			<% end %>
 		</div>
 	</div>

@@ -12,5 +12,29 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+$(document).ready(function (){
+
+    function initialize() {
+  		var myLatlng = new google.maps.LatLng(35.780872, -78.639131);
+  
+	    var mapOptions = {
+	      zoom: 15,
+	      center: myLatlng,
+	      scrollwheel: false    
+	    }
+
+  		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  		//var image = "<%= asset_path 'acorn.png'%>"
+  		var marker = new google.maps.Marker({
+	      position: myLatlng,
+	      map: map,
+	      title: 'Sup Raleigh!',
+	      //icon: image
+	    });
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+});
